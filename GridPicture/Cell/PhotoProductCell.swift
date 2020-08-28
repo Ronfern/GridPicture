@@ -11,7 +11,13 @@ import Nuke
 
 class PhotoProductCell: UICollectionViewCell {
     
-    @IBOutlet private weak var imageCell: UIImageView!
+    @IBOutlet private weak var imageCell: UIImageView! {
+        didSet {
+            imageCell.layer.masksToBounds = false
+            imageCell.layer.cornerRadius = 8
+            imageCell.clipsToBounds = true
+        }
+    }
     
     @IBOutlet private weak var viewBack: UIView! {
         didSet{
@@ -32,10 +38,6 @@ class PhotoProductCell: UICollectionViewCell {
         layer.masksToBounds = false
         layer.cornerRadius = 8
         clipsToBounds = true
-
-        imageCell.layer.masksToBounds = false
-        imageCell.layer.cornerRadius = 8
-        imageCell.clipsToBounds = true
     }
     
     func setPictureToCell(pictureToCell: String?) {

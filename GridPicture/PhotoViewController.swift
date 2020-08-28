@@ -67,7 +67,7 @@ extension PhotoViewController: UISearchBarDelegate {
             pagination()
         }
         
-        if searchBar.text!.count > 2 {
+        if searchBar.text!.count > 3 {
             type = .findPhotos
             if  model.rows.count <= 300 && load  == true {
                 cleanRows()
