@@ -3,27 +3,49 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2071998124F68B3400979AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071998024F68B3400979AA7 /* AppDelegate.swift */; };
 		2071998324F68B3400979AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071998224F68B3400979AA7 /* SceneDelegate.swift */; };
-		2071998524F68B3400979AA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071998424F68B3400979AA7 /* ViewController.swift */; };
+		2071998524F68B3400979AA7 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071998424F68B3400979AA7 /* PhotoViewController.swift */; };
 		2071998824F68B3400979AA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2071998624F68B3400979AA7 /* Main.storyboard */; };
 		2071998A24F68B3A00979AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2071998924F68B3A00979AA7 /* Assets.xcassets */; };
 		2071998D24F68B3A00979AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2071998B24F68B3A00979AA7 /* LaunchScreen.storyboard */; };
+		2071999624F6AD6200979AA7 /* PhotoProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071999424F6AD6100979AA7 /* PhotoProductCell.swift */; };
+		2071999724F6AD6200979AA7 /* PhotoProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2071999524F6AD6200979AA7 /* PhotoProductCell.xib */; };
+		20B4EFA424F830AD00FFEAB7 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B4EFA324F830AD00FFEAB7 /* Interfaces.swift */; };
+		20B4EFA724F8331800FFEAB7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B4EFA624F8331800FFEAB7 /* DetailViewController.swift */; };
+		20EE537F24F6F00C009A9566 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE537E24F6F00C009A9566 /* ServerManager.swift */; };
+		20EE538124F6F1BF009A9566 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE538024F6F1BE009A9566 /* PhotoModel.swift */; };
+		20EE538324F6F1F8009A9566 /* PicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE538224F6F1F8009A9566 /* PicturesViewModel.swift */; };
+		20EE539424F78BFE009A9566 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE539324F78BFE009A9566 /* PhotoDataSource.swift */; };
+		20EE539624F7B193009A9566 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE539524F7B193009A9566 /* Array.swift */; };
+		79504D554BBE1FD11B9B8FE2 /* Pods_GridPicture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B992C6A11235590AB0B742 /* Pods_GridPicture.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2071997D24F68B3400979AA7 /* GridPicture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GridPicture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2071998024F68B3400979AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2071998224F68B3400979AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2071998424F68B3400979AA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2071998424F68B3400979AA7 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		2071998724F68B3400979AA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2071998924F68B3A00979AA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2071998C24F68B3A00979AA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2071998E24F68B3A00979AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2071999424F6AD6100979AA7 /* PhotoProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoProductCell.swift; sourceTree = "<group>"; };
+		2071999524F6AD6200979AA7 /* PhotoProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoProductCell.xib; sourceTree = "<group>"; };
+		20B4EFA324F830AD00FFEAB7 /* Interfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
+		20B4EFA624F8331800FFEAB7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		20EE537E24F6F00C009A9566 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		20EE538024F6F1BE009A9566 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		20EE538224F6F1F8009A9566 /* PicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesViewModel.swift; sourceTree = "<group>"; };
+		20EE539324F78BFE009A9566 /* PhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
+		20EE539524F7B193009A9566 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		2CB134D5ECD2F9904904A074 /* Pods-GridPicture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GridPicture.release.xcconfig"; path = "Target Support Files/Pods-GridPicture/Pods-GridPicture.release.xcconfig"; sourceTree = "<group>"; };
+		81AEC39FB22631195FC53B4E /* Pods-GridPicture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GridPicture.debug.xcconfig"; path = "Target Support Files/Pods-GridPicture/Pods-GridPicture.debug.xcconfig"; sourceTree = "<group>"; };
+		B0B992C6A11235590AB0B742 /* Pods_GridPicture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GridPicture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +53,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79504D554BBE1FD11B9B8FE2 /* Pods_GridPicture.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2032DE6D24F800A700C30140 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20EE538224F6F1F8009A9566 /* PicturesViewModel.swift */,
+				20EE538024F6F1BE009A9566 /* PhotoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2071997424F68B3400979AA7 = {
 			isa = PBXGroup;
 			children = (
 				2071997F24F68B3400979AA7 /* GridPicture */,
 				2071997E24F68B3400979AA7 /* Products */,
+				E57680CDF0692FF6509BF90C /* Pods */,
+				CA70186A132714DFB18A4ED1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +92,70 @@
 			children = (
 				2071998024F68B3400979AA7 /* AppDelegate.swift */,
 				2071998224F68B3400979AA7 /* SceneDelegate.swift */,
-				2071998424F68B3400979AA7 /* ViewController.swift */,
+				20B4EFA524F830CD00FFEAB7 /* Network */,
+				20B4EFA324F830AD00FFEAB7 /* Interfaces.swift */,
+				20AF526624F8CFCF00D7F18D /* ViewController */,
+				2032DE6D24F800A700C30140 /* Model */,
+				20EE539924F7B1AF009A9566 /* Extention */,
+				20EE539224F786D0009A9566 /* Cell */,
 				2071998624F68B3400979AA7 /* Main.storyboard */,
 				2071998924F68B3A00979AA7 /* Assets.xcassets */,
 				2071998B24F68B3A00979AA7 /* LaunchScreen.storyboard */,
 				2071998E24F68B3A00979AA7 /* Info.plist */,
 			);
 			path = GridPicture;
+			sourceTree = "<group>";
+		};
+		20AF526624F8CFCF00D7F18D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2071998424F68B3400979AA7 /* PhotoViewController.swift */,
+				20B4EFA624F8331800FFEAB7 /* DetailViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		20B4EFA524F830CD00FFEAB7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				20EE537E24F6F00C009A9566 /* ServerManager.swift */,
+				20EE539324F78BFE009A9566 /* PhotoDataSource.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		20EE539224F786D0009A9566 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2071999424F6AD6100979AA7 /* PhotoProductCell.swift */,
+				2071999524F6AD6200979AA7 /* PhotoProductCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		20EE539924F7B1AF009A9566 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				20EE539524F7B193009A9566 /* Array.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		CA70186A132714DFB18A4ED1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0B992C6A11235590AB0B742 /* Pods_GridPicture.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E57680CDF0692FF6509BF90C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81AEC39FB22631195FC53B4E /* Pods-GridPicture.debug.xcconfig */,
+				2CB134D5ECD2F9904904A074 /* Pods-GridPicture.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2071999124F68B3A00979AA7 /* Build configuration list for PBXNativeTarget "GridPicture" */;
 			buildPhases = (
+				6F2B42C448B2C484B80C1F14 /* [CP] Check Pods Manifest.lock */,
 				2071997924F68B3400979AA7 /* Sources */,
 				2071997A24F68B3400979AA7 /* Frameworks */,
 				2071997B24F68B3400979AA7 /* Resources */,
+				116CBD122A1046DF40BD958A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2071998D24F68B3A00979AA7 /* LaunchScreen.storyboard in Resources */,
+				2071999724F6AD6200979AA7 /* PhotoProductCell.xib in Resources */,
 				2071998A24F68B3A00979AA7 /* Assets.xcassets in Resources */,
 				2071998824F68B3400979AA7 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +227,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		116CBD122A1046DF40BD958A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GridPicture/Pods-GridPicture-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GridPicture/Pods-GridPicture-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GridPicture/Pods-GridPicture-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F2B42C448B2C484B80C1F14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GridPicture-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2071997924F68B3400979AA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2071998524F68B3400979AA7 /* ViewController.swift in Sources */,
+				20B4EFA724F8331800FFEAB7 /* DetailViewController.swift in Sources */,
+				20EE539624F7B193009A9566 /* Array.swift in Sources */,
+				20EE537F24F6F00C009A9566 /* ServerManager.swift in Sources */,
+				2071998524F68B3400979AA7 /* PhotoViewController.swift in Sources */,
+				2071999624F6AD6200979AA7 /* PhotoProductCell.swift in Sources */,
+				20EE539424F78BFE009A9566 /* PhotoDataSource.swift in Sources */,
+				20B4EFA424F830AD00FFEAB7 /* Interfaces.swift in Sources */,
 				2071998124F68B3400979AA7 /* AppDelegate.swift in Sources */,
 				2071998324F68B3400979AA7 /* SceneDelegate.swift in Sources */,
+				20EE538124F6F1BF009A9566 /* PhotoModel.swift in Sources */,
+				20EE538324F6F1F8009A9566 /* PicturesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,11 +426,13 @@
 		};
 		2071999224F68B3A00979AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81AEC39FB22631195FC53B4E /* Pods-GridPicture.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8Y4AXC9J8;
 				INFOPLIST_FILE = GridPicture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,17 +440,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronfernCompany.GridPicture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2071999324F68B3A00979AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CB134D5ECD2F9904904A074 /* Pods-GridPicture.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8Y4AXC9J8;
 				INFOPLIST_FILE = GridPicture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +460,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronfernCompany.GridPicture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
