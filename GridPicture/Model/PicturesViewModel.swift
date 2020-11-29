@@ -7,15 +7,17 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol  PhotoViewModelType: ViewModelType {
-    var rows: [PhotoModel]  { get }
+    var rows: PublishSubject<[PhotoModel]>  { get }
 }
 
 class PhotoViewModel: PhotoViewModelType {
+    var rows: PublishSubject<[PhotoModel]> = PublishSubject()
     
-    weak var delegate: ViewModelDelegate?
-    var rows: [PhotoModel]  = []
+    
     let dataSource: PhotoDataSource
     
     init(dataSource: PhotoDataSource) {
@@ -23,27 +25,21 @@ class PhotoViewModel: PhotoViewModelType {
     }
     
      func loadData(pageNumber: Int) {
-        dataSource.fetchPhotos(pageNumber: pageNumber) {[weak self] result in
-            DispatchQueue.main.async {
-                guard let ws = self else { return }
-                ws.rows.append(contentsOf: result)
-                ws.delegate?.didLoadData()
-            }
+        dataSource.fetchPhotos(pageNumber: pageNumber) { result in
+            self.rows.onNext(result)
         }
     }
     
+
     func cleanRows() {
-        rows = []
+        rows.onCompleted()
     }
     
     func findData(pageNumber: Int, text: String) {
-        dataSource.findPhotos(searchText: text, pageNumber: pageNumber) {[weak self] result in
-            DispatchQueue.main.async {
-                guard let ws = self else { return }
-                ws.rows.append(contentsOf: result)
-                ws.delegate?.didLoadData()
-            }
+        dataSource.findPhotos(searchText: text, pageNumber: pageNumber) { result in
+            self.rows.onNext(result)
         }
     }
+    
     
 }

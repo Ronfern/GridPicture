@@ -22,4 +22,6 @@ class ServerManager {
     func findPhotos(searchText: String, pageNumber: Int, completion: @escaping (AFDataResponse<Any>) -> Void) {
         AF.request(searchPhotos, method: .get, parameters: ["query": searchText, "page": pageNumber, "per_page": 30], headers: nil).responseJSON(completionHandler: completion)
      }
+    
+    
 }
