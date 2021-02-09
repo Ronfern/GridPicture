@@ -20,6 +20,29 @@ class ServerManager {
     }
     
     func findPhotos(searchText: String, pageNumber: Int, completion: @escaping (AFDataResponse<Any>) -> Void) {
+
+        
         AF.request(searchPhotos, method: .get, parameters: ["query": searchText, "page": pageNumber, "per_page": 30], headers: nil).responseJSON(completionHandler: completion)
      }
+    
+    func uploadPhoto(_ url: String, image: UIImage, params: [String : Any], header: [String:String]) {
+        let httpHeaders = HTTPHeaders(header)
+       AF.upload(multipartFormData: { multiPart in
+            for p in params {
+                multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+            }
+            multiPart.append(image.jpegData(compressionQuality: 0.4)!, withName: "avatar", fileName: "file.jpg", mimeType: "image/jpg")
+        }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+            print("Upload Progress: \(progress.fractionCompleted)")
+        }).responseJSON(completionHandler: { data in
+            print("upload finished: \(data)")
+        }).response { (response) in
+            switch response.result {
+            case .success(let resut):
+                print("upload success result: \(resut)")
+            case .failure(let err):
+                print("upload err: \(err)")
+            }
+        }
+    }
 }

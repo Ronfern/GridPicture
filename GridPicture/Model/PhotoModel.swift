@@ -9,6 +9,27 @@
 import Foundation
 
 
+enum ListPhotos {
+  // MARK: Use cases
+  
+  enum FetchPhotos {
+    struct Request{
+    }
+    struct Response{
+      var photos: [PhotoModel]
+    }
+    struct ViewModel {
+        
+      struct DisplayedPhotos {
+        var small: String
+        var regular: String
+        var full: String
+      }
+        var displayedPhotos: [DisplayedPhotos]
+    }
+  }
+}
+
 class FindPhotoModel : Codable {
     
     let pictureModelArray: [PhotoModel]

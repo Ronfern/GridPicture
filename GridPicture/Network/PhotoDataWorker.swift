@@ -9,12 +9,12 @@
 import Alamofire
 
 
-protocol PictureDataSourceType {
+protocol PhotoDataWorkerProtocol {
     func fetchPhotos(pageNumber: Int, completion: @escaping (_ result: [PhotoModel]) -> Void)
     func findPhotos(searchText: String, pageNumber: Int, completion: @escaping ([PhotoModel]) -> Void)
 }
 
-final class PhotoDataSource: PictureDataSourceType {
+final class PhotoDataWorker: PhotoDataWorkerProtocol {
     
     func fetchPhotos(pageNumber: Int, completion: @escaping ([PhotoModel]) -> Void) {
         ServerManager.shared.listPhotos(pageNumber: pageNumber) { (response) in

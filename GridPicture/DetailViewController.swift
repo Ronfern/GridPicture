@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         if let imgURlString = photoModel, let urlImage = URL(string: imgURlString) {
             let request = ImageRequest(
+                
                 url: urlImage,
                 priority: .veryHigh)
             
