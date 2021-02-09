@@ -23,7 +23,11 @@ class PhotoViewController: UIViewController {
     private var model: PhotoViewModelType! = PhotoViewModel(dataSource: PhotoDataSource())
     private var pageCount = 0
     private var load = true
-    private var type: TypeCollection = .listPhotos
+    private var type: TypeCollection = .listPhotos {
+        didSet {
+            cleanRows()
+        }
+    }
     
     enum TypeCollection {
         case listPhotos
@@ -45,17 +49,6 @@ class PhotoViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-        
-    fileprivate func pagination() {
-        load = false
-        pageCount += 1
-        model.loadData(pageNumber: pageCount)
-    }
-    fileprivate func paginationInSearch() {
-        load = false
-        pageCount += 1
-        model.findData(pageNumber: pageCount, text: searchBar.text!)
-    }
 
 }
 extension PhotoViewController: UISearchBarDelegate {
@@ -63,32 +56,25 @@ extension PhotoViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             type = .listPhotos
-            cleanRows()
-            pagination()
+        }
+        if searchBar.text!.count > 3, load  == true  {
+            type = .findPhotos
         }
         
-        if searchBar.text!.count > 3 {
-            type = .findPhotos
-            if  model.rows.count <= 300 && load  == true {
-                cleanRows()
-                paginationInSearch()
-            }
+        if  model.rows.count >= 300 {
+            cleanRows()
+            return
         }
+        pagination()
     }
     
-    private func cleanRows() {
-        model.cleanRows()
-        pageCount = 0
-        DispatchQueue.main.async {
-            self.collectionGrid.reloadData()
-        }
-    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder() 
     }
 }
     
+
 extension PhotoViewController: ViewModelDelegate {
     
     func didLoadData() {
@@ -100,6 +86,27 @@ extension PhotoViewController: ViewModelDelegate {
     
 }
     
+private extension PhotoViewController {
+    
+    func cleanRows() {
+        model.cleanRows()
+        pageCount = 0
+        DispatchQueue.main.async {
+            self.collectionGrid.reloadData()
+        }
+    }
+    
+    func pagination() {
+        load = false
+        pageCount += 1
+        if type == .listPhotos {
+            model.loadData(pageNumber: pageCount)
+        } else {
+            model.findData(pageNumber: pageCount, text: searchBar.text!)
+        }
+    }
+}
+
 extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
  
  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -134,7 +141,7 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
             if  type == .listPhotos {
                 pagination()
             } else if searchBar.text!.count > 2 {
-                paginationInSearch()
+                pagination()
             }
         }
     }
