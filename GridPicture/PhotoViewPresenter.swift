@@ -15,7 +15,7 @@ protocol PhotoPresentationLogic: class {
 final class PhotoViewPresenter: PhotoPresentationLogic {
     
     weak var viewController: PhotoFetchedLogic?
-    
+    private var viewModel = ListPhotos.FetchPhotos.ViewModel(displayedPhotos: [])
     
     func presentPhotos(_ response: ListPhotos.FetchPhotos.Response) {
         
@@ -24,7 +24,10 @@ final class PhotoViewPresenter: PhotoPresentationLogic {
             let displayedOrder = ListPhotos.FetchPhotos.ViewModel.DisplayedPhotos(small: item.urls!.small!, regular: item.urls!.regular!, full: item.urls!.full!)
           displayedOrders.append(displayedOrder)
         }
-        let viewModel = ListPhotos.FetchPhotos.ViewModel(displayedPhotos: displayedOrders)
+        viewModel.displayedPhotos.append(contentsOf: displayedOrders)
+        if response.photos.isEmpty {
+            viewModel.displayedPhotos.removeAll()
+        }
         viewController?.displayUser(viewModel: viewModel)
     }
 }

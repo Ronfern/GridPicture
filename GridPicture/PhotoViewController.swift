@@ -10,8 +10,6 @@ import UIKit
 import Nuke
 
 protocol PhotoFetchedLogic: class {
-
-  /// Метод логики отображения данных
     func displayUser(viewModel: ListPhotos.FetchPhotos.ViewModel)
 }
 
@@ -28,8 +26,12 @@ class PhotoViewController: UIViewController {
     
     private var model: [ListPhotos.FetchPhotos.ViewModel.DisplayedPhotos] = []
     private var pageCount = 0
-    private var load = true
-    private var type: TypeCollection = .listPhotos
+    private var load = false
+    private var type: TypeCollection = .listPhotos {
+        didSet {
+            cleanRows()
+        }
+    }
     var interactor: ViewModelType?
     
     enum TypeCollection {
@@ -56,10 +58,8 @@ class PhotoViewController: UIViewController {
     private func setup() {
       let interactor = PhotoInteractor()
       let presenter = PhotoViewPresenter()
-        
       interactor.presenter = presenter
       presenter.viewController = self
-
       self.interactor = interactor
     }
 
@@ -67,39 +67,32 @@ class PhotoViewController: UIViewController {
     fileprivate func pagination() {
         load = false
         pageCount += 1
-        interactor?.loadData(pageNumber: pageCount)
-    }
-    fileprivate func paginationInSearch() {
-        load = false
-        pageCount += 1
-        interactor?.findData(pageNumber: pageCount, text: searchBar.text!)
+        if type == .listPhotos {
+            interactor?.loadData(pageNumber: pageCount)
+        } else {
+            interactor?.findData(pageNumber: pageCount, text: searchBar.text!)
+        }
     }
 
 }
+
 extension PhotoViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             type = .listPhotos
-            cleanRows()
-            pagination()
         }
         
-        if searchBar.text!.count > 3 {
+        if searchBar.text!.count > 3, model.count <= 300, load  == true {
             type = .findPhotos
-//            if model.rows.count <= 300 && load  == true {
-//                cleanRows()
-//                paginationInSearch()
-//            }
         }
+        cleanRows()
+        pagination()
     }
     
     private func cleanRows() {
         interactor?.cleanRows()
         pageCount = 0
-        DispatchQueue.main.async {
-            self.collectionGrid.reloadData()
-        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -139,11 +132,9 @@ extension PhotoViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == model.count - 1 && model.count < 300 && load {
+        if indexPath.row == model.count - 1, model.count < 300 , load  || searchBar.text!.count > 2  {
             if  type == .listPhotos {
-                pagination()
-            } else if searchBar.text!.count > 2 {
-                paginationInSearch()
+                self.pagination()
             }
         }
     }
@@ -178,9 +169,8 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 
 extension PhotoViewController: PhotoFetchedLogic {
     func displayUser(viewModel: ListPhotos.FetchPhotos.ViewModel) {
-        print(viewModel)
-        load = true
         model = viewModel.displayedPhotos
+        load = true
         DispatchQueue.main.async {
             self.collectionGrid.reloadData()
         }

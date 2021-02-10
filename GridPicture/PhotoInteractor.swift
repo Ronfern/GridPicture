@@ -21,7 +21,7 @@ protocol ViewModelType: class {
     }
     
     func cleanRows() {
-    //    presenter?.presentUser([])
+        presenter?.presentPhotos(ListPhotos.FetchPhotos.Response(photos: []))
     }
     
     func findData(pageNumber: Int, text: String) {
